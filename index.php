@@ -184,7 +184,7 @@
   </section>
 
   <section class="text-center mt-5">
-  <a href="#" class="btn btn-primary">Find Out More...</a>
+  <a href="services.php" class="btn btn-primary">Find Out More...</a>
     <h2 class="text-center mt-5 mb-5">How to book a service in online</h2>
     <div class="container">
       <div class="row">
