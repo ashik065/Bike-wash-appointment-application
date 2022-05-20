@@ -46,10 +46,10 @@
       <a class="nav-link" href="about.html">About</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="blog.html">Book Online</a>
+      <a class="nav-link" href="book_online.php">Book Online</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="blog.html">Services</a>
+      <a class="nav-link" href="services.php">Services</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="contact.php">Contact Us</a>
