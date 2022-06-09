@@ -1,3 +1,56 @@
+<?php
+
+   //$flag=true;//success
+  if(isset($_POST['submit']))
+  {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "website1";
+
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $database);
+
+    // Check connection
+    if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+     }
+    //  else{
+    //    echo "Connected successfully";
+    //  }
+     
+
+    
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $service = $_POST['service'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+
+    if($name && $email && $phone && $service && $date && $time ){
+      $sql = "INSERT INTO `booking_page`(`Name`, `Email`, `Phone`, `Service`, `Date`,`Time`) VALUES ('$name','$email','$phone','$service', '$date', '$time')";
+      
+      if (mysqli_query($conn, $sql) == false){
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      }
+    }
+    else
+    echo '<div class="alert alert-danger" role="alert">
+    ERROR!!! Please Insert all the fields..
+    </div>';
+    
+    
+    // if (mysqli_query($conn, $sql) == false){
+    //   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    // }
+
+   mysqli_close($conn);
+  }
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,11 +64,23 @@
   <!-- font-awesome cdn -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+  
+  <!-- test -->
+  
 
   <title>(Draft_1.1)_HomePage</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+
 </head>
 
 <body>
@@ -94,7 +159,7 @@
           <h3 class="text-center text-dark">Book Service Online</h3>
           <hr>
 
-          <form action="contact.php" method="post" class="text-dark">
+          <form action="book_online.php" method="post" class="text-dark">
             <div class="form-group mb-2">
               <label for="name">Name</label>
               <input type="text" name="name" class="form-control mt-2" placeholder="Enter Your Name" id="name" required>
@@ -107,34 +172,12 @@
               <label for="phone">Phone</label>
               <input type="number" name="phone" id="phone" class="form-control mt-2" placeholder="Phone Number">
             </div>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-            </div>
-            <div class="input-group mb-2">
-                <select class="form-select" id="inputGroupSelect02">
-                    <option selected>Choose a service...</option>
-                    <option value="1">Foam Wash And Bike Polish</option>
-                    <option value="2">Shampoo Wash</option>
-                    <option value="3">Bike Polish</option>
-                    <option value="4">Quick Bucket Wash</option>
-                    <option value="5">Petrol Wash</option>
-                    <option value="6">Water Wash</option>
-                </select>
-                <label class="input-group-text" for="inputGroupSelect02">Services</label>
-                </div>
+            
 
                 <!-- <div class="form-group mb-2"> -->
-                <div class="input-group date mb-2" id="datepicker">    
-                    <label for="date mb-2">Date</label>
-                        <input type="text" class="form-control" id="date"/>
+                <div class="input-group date mb-3" id="datepicker">    
+                    <label for="date" class=" mb-2 col-sm-1 ">Date</label>
+                        <input type="text" name="date" class="form-control">
                         <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="fa fa-calendar"></i>
@@ -142,21 +185,35 @@
                         </span>
                     </div>
 
-                    <div class="input-group mb-2">
-                <select class="form-select" id="inputGroupSelect02">
+                    <div class="input-group mb-3">
+                <select class="form-select" name="time" id="inputGroupSelect02">
                     <option selected>Choose a time slot...</option>
-                    <option value="1">(10-11)AM</option>
-                    <option value="2">(11-12)PM</option>
-                    <option value="6">(12-1)PM</option>
-                    <option value="4">(2-3)PM</option>
-                    <option value="5">(3-4)PM</option>
-                    <option value="6">(4-5)PM</option>
-                    <option value="6">(5-6)PM</option>
-                    <option value="6">(6-7)PM</option>
-                    <option value="6">(7-8)PM</option>
+                    <option value="(10-11)AM">(10-11)AM</option>
+                    <option value="(11-12)PM">(11-12)PM</option>
+                    <option value="(12-1)PM">(12-1)PM</option>
+                    <option value="(2-3)PM">(2-3)PM</option>
+                    <option value="(3-4)PM">(3-4)PM</option>
+                    <option value="(4-5)PM">(4-5)PM</option>
+                    <option value="(5-6)PM">(5-6)PM</option>
+                    <option value="(6-7)PM">(6-7)PM</option>
+                    <option value="(7-8)PM">(7-8)PM</option>
                 </select>
                 <label class="input-group-text" for="inputGroupSelect02">Time</label>
-                </div>    
+                </div>  
+                
+                
+                <div class="input-group mb-3">
+                <select class="form-select" name ="service" id="inputGroupSelect02">
+                    <option selected>Choose a service...</option>
+                    <option value="Foam Wash And Bike Polish">Foam Wash And Bike Polish</option>
+                    <option value="Shampoo Wash">Shampoo Wash</option>
+                    <option value="Bike Polish">Bike Polish</option>
+                    <option value="Quick Bucket Wash">Quick Bucket Wash</option>
+                    <option value="Petrol Wash">Petrol Wash</option>
+                    <option value="Water Wash">Water Wash</option>
+                </select>
+                <label class="input-group-text" for="inputGroupSelect02">Service</label>
+                </div>
 
             <div class="d-grid gap-2 text-center">
 
@@ -197,9 +254,15 @@
   </footer>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
+
+    <script type="text/javascript">
+        $(function() {
+            $('#datepicker').datepicker({});
+        });
+    </script>
 </body>
 
 </html>

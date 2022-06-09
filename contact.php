@@ -1,3 +1,53 @@
+<?php
+
+   //$flag=true;//success
+  if(isset($_POST['submit']))
+  {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "website1";
+
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $database);
+
+    // Check connection
+    if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+     }
+     //else{
+    //   echo "Connected successfully";
+    // }
+     
+
+    
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $message = $_POST['message'];
+
+    if($name && $email && $phone && $message ){
+      $sql = "INSERT INTO `contact_page`(`Name`, `Email`, `Phone`, `Message`) VALUES ('$name','$email',$phone,'$message')";
+      
+      if (mysqli_query($conn, $sql) == false){
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      }
+    }
+    else
+    echo '<div class="alert alert-danger" role="alert">
+    ERROR!!! Please Insert all the fields..
+    </div>';
+    
+    
+    // if (mysqli_query($conn, $sql) == false){
+    //   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    // }
+
+   mysqli_close($conn);
+  }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
