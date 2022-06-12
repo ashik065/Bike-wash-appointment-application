@@ -9,7 +9,7 @@
 } */
 
 .navbar{
-    background-color: bisque;
+    background-color: #99c4be;
     padding-right: 50px;
 }
 
@@ -119,4 +119,14 @@ footer span{
  
 .card ul{
     padding-bottom: 15px;
+}
+table{
+    border: 2px solid black;
+}
+th,td{
+    border: 2px solid black;
+}
+.fas{
+    font-size:medium;
+
 }

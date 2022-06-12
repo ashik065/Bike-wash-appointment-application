@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>(Draft_1.1)_HomePage</title>
   <!-- Favicon -->
   <link rel="shortcut icon" href="..\resources\images\logo.png" type="image/x-icon">
   <!-- font-awesome cdn -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
 
-  <title>(Draft_1.1)_HomePage</title>
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
@@ -142,7 +142,7 @@
                   <li class="list-group-item list-group-item-success">Foam exterior wash</li>
               </ul>
               <br>
-              <a href="#" class="btn btn-primary">Book Online</a>
+              <a href="book_online.php" class="btn btn-primary">Book Online</a>
              </div>
             </div>
          </div>
@@ -158,7 +158,7 @@
                   <li class="list-group-item list-group-item-success">Mud pad cleaning</li>
               </ul>
               <br>
-              <a href="#" class="btn btn-primary">Book Online</a>
+              <a href="book_online.php" class="btn btn-primary">Book Online</a>
             </div>
           </div>
         </div>
@@ -175,7 +175,7 @@
                   <li class="list-group-item list-group-item-success">Scratch removal</li>
               </ul>
               <br>
-              <a href="#" class="btn btn-primary">Book Online</a>
+              <a href="book_online.php" class="btn btn-primary">Book Online</a>
             </div>
           </div>
         </div>
@@ -197,6 +197,7 @@
           </div> -->
                   <div class="card" style="width: 18rem;height: 20rem;">
           <div class="card-body">
+          <i class="fas fa-user-circle"></i>
             <h5 class="card-title text-center mt-4">Step-1</h5>
             <p class="card-text mt-5">Enter your email and password to sign in.</p>
           </div>
@@ -208,6 +209,7 @@
           <div class="text-dark">
           <div class="card" style="width: 18rem;height: 20rem;">
           <div class="card-body">
+          <i class="fas fa-motorcycle"></i>
             <h5 class="card-title text-center mt-4">Step-2</h5>
             <p class="card-text mt-5">Choose The service you need. From basic wash services to full detailing and paint protection, we have a service to match your needs</p>
           </div>
@@ -218,6 +220,7 @@
           <div class="text-dark">
           <div class="card" style="width: 18rem;height: 20rem;">
           <div class="card-body">
+          <i class="fas fa-calendar-check"></i>
             <h5 class="card-title text-center mt-4">Step-3</h5>
             <p class="card-text mt-5">Pick a date & time. Sites are open 7 days per week.</p>
           </div>
@@ -228,6 +231,7 @@
           <div class="text-dark">
           <div class="card" style="width: 18rem;height: 20rem;">
           <div class="card-body">
+          <i class="fas fa-clipboard-list"></i>
             <h5 class="card-title text-center mt-4">Step-4</h5>
             <p class="card-text mt-5">Finish the booking process and drive in on time. Our staff will be ready and waiting to make your bike look like new again</p>
           </div>

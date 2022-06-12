@@ -21,24 +21,24 @@
      
 
     
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $service = $_POST['service'];
-    $date = $_POST['date'];
-    $time = $_POST['time'];
+    // $name = $_POST['name'];
+    // $email = $_POST['email'];
+    // $phone = $_POST['phone'];
+    // $service = $_POST['service'];
+    // $date = $_POST['date'];
+    // $time = $_POST['time'];
 
-    if($name && $email && $phone && $service && $date && $time ){
-      $sql = "INSERT INTO `booking_page`(`Name`, `Email`, `Phone`, `Service`, `Date`,`Time`) VALUES ('$name','$email','$phone','$service', '$date', '$time')";
+    // if($name && $email && $phone && $service && $date && $time ){
+    //   $sql = "INSERT INTO `booking_page`(`Name`, `Email`, `Phone`, `Service`, `Date`,`Time`) VALUES ('$name','$email','$phone','$service', '$date', '$time')";
       
-      if (mysqli_query($conn, $sql) == false){
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-      }
-    }
-    else
-    echo '<div class="alert alert-danger" role="alert">
-    ERROR!!! Please Insert all the fields..
-    </div>';
+    //   if (mysqli_query($conn, $sql) == false){
+    //     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    //   }
+    // }
+    // else
+    // echo '<div class="alert alert-danger" role="alert">
+    // ERROR!!! Please Insert all the fields..
+    // </div>';
     
     
     // if (mysqli_query($conn, $sql) == false){
@@ -159,7 +159,7 @@
           <h3 class="text-center text-dark">Book Service Online</h3>
           <hr>
 
-          <form action="book_online.php" method="post" class="text-dark">
+          <form action="confirmation_page.php" method="post" class="text-dark">
             <div class="form-group mb-2">
               <label for="name">Name</label>
               <input type="text" name="name" class="form-control mt-2" placeholder="Enter Your Name" id="name" required>
@@ -218,7 +218,14 @@
             <div class="d-grid gap-2 text-center">
 
             <button type="reset" class="btn btn-danger">Reset</button>
-            <button  type="submit" name="submit" class="btn btn-danger">Submit</button>
+            <button  type="submit" name="submit" class="btn btn-danger"> Submit</button>
+            <?php
+  //if(!empty('$name') && !empty('$email') && !empty('$phone') && !empty('$service') && !empty('$date') && !empty('$time') ):?>
+  
+    <!-- <a href="confirmation_page.php" class="btn btn-primary">click here</a> -->
+    <!-- <button class="btn btn-danger" onclick="alert('Hello')">click</button> -->
+
+  <?php //endif;?>
 </div>
           </form>
          
