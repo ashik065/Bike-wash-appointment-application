@@ -149,11 +149,11 @@
             </div>
             <div class="form-group mb-2">
               <label for="email">Email</label>
-              <input type="email" name="email" class="form-control mt-2" placeholder="Enter Your Email" id="email" required>
+              <input type="email" pattern="[a-z0-9]+@gmail+\.com" name="email" class="form-control mt-2" placeholder="Enter Your Email" id="email" required>
             </div>
             <div class="form-group mb-2">
               <label for="phone">Phone</label>
-              <input type="number" name="phone" id="phone" class="form-control mt-2" placeholder="Phone Number">
+              <input type="number" pattern="([01]|\+88)?\d{11}" name="phone" id="phone" class="form-control mt-2" placeholder="Phone Number">
             </div>
             <div class="form-group mb-3">
               <label for="message">Message</label>

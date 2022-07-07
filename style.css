@@ -126,7 +126,7 @@ table{
 th,td{
     border: 2px solid black;
 }
-.fas{
-    font-size:medium;
+i.fas{
+    font-size: 1.5em;
 
 }

@@ -19,6 +19,7 @@
        //echo "Connected successfully";
 
 
+
        $name = $_POST['name'];
        $email = $_POST['email'];
        $phone = $_POST['phone'];
@@ -27,10 +28,22 @@
        $time = $_POST['time'];
 
        $current_time = time();
-   
+
+       $get_service_amount = "SELECT amount FROM `services` WHERE service_name= '$service'";
+
+       $get_duplicate = "SELECT count(*) FROM `booking_page2` WHERE date= '$date' and time= '$time'";
+      
+       $count_duplicate = mysqli_query($conn , $get_duplicate);
+       $row1=array();
+      $row1 = mysqli_fetch_row($count_duplicate);
+      $count_duplicate=$row1[0];
+      //echo $count_duplicate;
+      if( $count_duplicate==1){
+      echo "ERROR...DUPLICATE ENTRY.."."<br>"."Please insert different date or time slot..";}
+      
        if($name && $email && $phone && $service && $date && $time ){
-         $sql = "INSERT INTO `booking_page`(`Name`, `Email`, `Phone`, `Service`, `Date`,`Time`) VALUES ('$name','$email','$phone','$service', '$date', '$time')";
-         
+         $sql = "INSERT INTO `booking_page2`(`Name`, `Email`, `Phone`, `Service`, `Date`,`Time`) VALUES ('$name','$email','$phone','$service', '$date', '$time')";
+
          if (mysqli_query($conn, $sql) == false){
            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
          }
@@ -39,7 +52,16 @@
        echo '<div class="alert alert-danger" role="alert">
        ERROR!!! Please Insert all the fields..
        </div>';
-         
+
+      $amount = mysqli_query($conn , $get_service_amount);
+      
+
+      ///for amount
+      $row=array();
+      $row = mysqli_fetch_row($amount);
+      $amount=$row[0];
+      ///for duplicate entry
+      
 
     //    echo 'Name:' ;
     //    echo $_POST['name'];
@@ -57,9 +79,10 @@
        // if (mysqli_query($conn, $sql) == false){
        //   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
        // }
-   
+      
       mysqli_close($conn);
      }
+  
      
 ?>    
 
@@ -195,7 +218,8 @@ td:nth-child(even)
         </tr>
         <tr>
             <th><h4>Total Amount: </h4></th>
-            <td><h4><?php echo '';?></h4></td>
+
+            <td><h4><?php echo $amount;?></h4></td>
         </tr>
     </table>
     <h3 class="mt-5">Please arrive at our shop with your bike at the specified time.</h3>
