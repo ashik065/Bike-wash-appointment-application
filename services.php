@@ -40,7 +40,7 @@
 <div class="collapse navbar-collapse">
   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+      <a class="nav-link" aria-current="page" href="index.php">Home</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="about.html">About</a>
@@ -49,7 +49,7 @@
       <a class="nav-link" href="book_online.php">Book Online</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="services.php">Services</a>
+      <a class="nav-link active" href="services.php">Services</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="contact.php">Contact Us</a>
