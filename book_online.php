@@ -1,8 +1,12 @@
 <?php
+ session_start();
+ $_SESSION['database1']='id1'; 
 
    //$flag=true;//success
   if(isset($_POST['submit']))
   {
+    
+
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -10,6 +14,7 @@
 
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $database);
+    
 
     // Check connection
     if (!$conn) {
@@ -170,14 +175,14 @@
             </div>
             <div class="form-group mb-3">
               <label for="phone">Phone</label>
-              <input type="number" name="phone" id="phone" class="form-control mt-2" placeholder="Phone Number">
+              <input type="number" name="phone" id="phone" class="form-control mt-2" placeholder="Phone Number" required>
             </div>
             
 
                 <!-- <div class="form-group mb-2"> -->
                 <div class="input-group date mb-3" id="datepicker">    
                     <label for="date" class=" mb-2 col-sm-1 ">Date</label>
-                        <input type="text" name="date" class="form-control">
+                        <input type="text" name="date" class="form-control" required>
                         <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
                             <i class="fa fa-calendar"></i>
@@ -186,7 +191,7 @@
                     </div>
 
                     <div class="input-group mb-3">
-                <select class="form-select" name="time" id="inputGroupSelect02">
+                <select class="form-select" name="time" id="inputGroupSelect02" required>
                     <option selected>Choose a time slot...</option>
                     <option value="(10-11)AM">(10-11)AM</option>
                     <option value="(11-12)PM">(11-12)PM</option>
@@ -203,7 +208,7 @@
                 
                 
                 <div class="input-group mb-3">
-                <select class="form-select" name ="service" id="inputGroupSelect02">
+                <select class="form-select" name ="service" id="inputGroupSelect02" required>
                     <option selected>Choose a service...</option>
                     <option value="Foam Wash And Bike Polish">Foam Wash And Bike Polish</option>
                     <option value="Shampoo Wash">Shampoo Wash</option>

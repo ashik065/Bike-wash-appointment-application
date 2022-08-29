@@ -153,7 +153,8 @@
             </div>
             <div class="form-group mb-2">
               <label for="phone">Phone</label>
-              <input type="number" pattern="([01]|\+88)?\d{11}" name="phone" id="phone" class="form-control mt-2" placeholder="Phone Number">
+              <input type="number" name="phone" id="phone" class="form-control mt-2" placeholder="Phone Number">
+             <!-- Favicon pattern="(+8801|8801|01|008801)[3-9]{1}[0-9]{8}"-->
             </div>
             <div class="form-group mb-3">
               <label for="message">Message</label>
@@ -174,16 +175,21 @@
 
         <div class="col-6 text-dark text-center mb-5">
           <h3 class="mb-5"> Contact Us</h3>
-          <div class="text-center mt-5"><br>
+          <div class="text-center mt-5">
           <div class="card text mt-5" style="width: 100%;">
             <div class="card-header">
               Email: raj_bike_wash@gmail.com
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Phone:01314559303</li>
+              <li class="list-group-item">Phone: 01314559303</li>
             </ul>
           </div>
           </div>
+          <div class="container mb-5">
+        <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29074.064140402857!2d88.55214668259492!3d24.37232609431849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fbe9746305f879%3A0xd11d498f5061c4dd!2sRajshahi%20Car%20and%20bike%20wash!5e0!3m2!1sen!2sbd!4v1661520142249!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
          
         </div>
         

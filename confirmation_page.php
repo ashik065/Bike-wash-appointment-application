@@ -1,4 +1,9 @@
 <?php
+  session_start();
+  if(isset($_SESSION['database1'])){
+   $_SESSION['database1'];}
+  else
+  header("Location:index.php");
 
    //$flag=true;//success
    if(isset($_POST['submit']))
@@ -82,8 +87,11 @@
       
       mysqli_close($conn);
      }
-  
-     
+
+
+    session_unset();
+  session_destroy();
+    
 ?>    
 
 
