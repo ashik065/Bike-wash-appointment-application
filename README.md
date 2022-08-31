@@ -28,4 +28,5 @@ Languages that have been used:
 -CSS
 -BOOTSTRAP
 -SQL
+-MYSQL
 
